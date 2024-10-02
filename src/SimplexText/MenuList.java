@@ -30,11 +30,13 @@ public class MenuList {
                 case "1" -> {
                     System.out.println("「銘柄マスタ一覧表示」が選択されました");
                     List<Stock> csvRead = CsvReader.readCsv(csvFile);
+                    CsvDisplay.showCsv(csvRead);
                     System.out.println("---");
                 }
 
                 case "2" -> {
                     System.out.println("「銘柄マスタ新規登録」が選択されました");
+
                     System.out.println("---");
                 }
 

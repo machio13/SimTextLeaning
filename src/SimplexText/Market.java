@@ -1,9 +1,9 @@
 package SimplexText;
 
 public enum Market {
-    P("PRIME"),
-    G("GROWS"),
-    S("STANDARD"),
+    Prime("PRIME"),
+    Growth("GROWS"),
+    Standard("STANDARD"),
     N("---");
 
     private final String code;
@@ -15,9 +15,9 @@ public enum Market {
 
     public static Market fromCode(String code) {
         return switch (code) {
-            case "Prime" -> P;
-            case "Standard" -> S;
-            case "Grows" -> G;
+            case "P" -> Prime;
+            case "S" -> Standard;
+            case "G" -> Growth;
             default -> N;
         };
     }
