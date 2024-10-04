@@ -13,6 +13,7 @@ public class MenuList {
         boolean isRunning = true;
         while (isRunning) {
             System.out.println("株式取引管理システムを開始します。");
+            System.out.println("操作するメニューを選んでください。");
             System.out.println("1. 銘柄マスタ一覧表示");
             System.out.println("2. 銘柄マスタ新規登録");
             System.out.println("9. アプリケーションを終了する");
@@ -22,7 +23,7 @@ public class MenuList {
             switch (userInput) {
 
                 case "9" -> {
-                    System.out.println("9. アプリケーションを終了する");
+                    System.out.println("アプリケーションを終了する");
                     System.out.println("---");
                     isRunning = false;
                 }
@@ -36,7 +37,7 @@ public class MenuList {
 
                 case "2" -> {
                     System.out.println("「銘柄マスタ新規登録」が選択されました");
-
+                    List<Stock> csvWrite = CsvWriter.writeCsv(csvFile);
                     System.out.println("---");
                 }
 

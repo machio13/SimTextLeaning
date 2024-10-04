@@ -37,7 +37,6 @@ public class CsvDisplay {
             System.out.printf("|  %-6s| %-33s| %-9s| %15s|\n", formatTicker, formattedName, formatMarket, formattedSharedIssued);
 
         }
-
         System.out.println("|=======================================================================|");
     }
 }
