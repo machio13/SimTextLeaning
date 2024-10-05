@@ -5,15 +5,23 @@ import java.util.Scanner;
 public class NewEntryCsv {
 
     static Scanner scanner = new Scanner(System.in);
-    static String writeTickerStr = scanner.nextLine();
-    static String writeNameStr = scanner.nextLine();
-    static String writeMarketStr = scanner.nextLine();
-    static String writeSharedIssued = scanner.nextLine();
+    static String writeTickerStr;
+    static String writeNameStr;
+    static String writeMarketStr;
+    static String writeSharedIssued;
+//
+//    public NewEntryCsv(String writeTickerStr, String writeNameStr, String writeMarketStr, String writeSharedIssued) {
+//        this.writeTickerStr = writeTickerStr;
+//        this.writeNameStr = writeNameStr;
+//        this.writeMarketStr = writeMarketStr;
+//        this.writeSharedIssued = writeSharedIssued;
+//    }
 
     public static void writeName() {
         while (true) {
             System.out.print("銘柄名>");
-            if (writeNameStr.matches("[a-zA-Z0-9 .()]")) {
+            String writeNameStr = scanner.nextLine();
+            if (writeNameStr.matches("[a-zA-Z0-9 .()]*")) {
                 break;
             }else {
                 System.out.println("入力に誤りがあります。やり直してください。");
@@ -24,6 +32,7 @@ public class NewEntryCsv {
     public static void writeTicker() {
         while (true) {
             System.out.print("銘柄コード>");
+            String writeTickerStr = scanner.nextLine();
             if (writeTickerStr.matches("^\\d{4}$|^[0-9][A-Z[^BEIOQVZ]][0-9][A-Z[^BEIOQVZ]]")) {
                 break;
             }else {
@@ -33,25 +42,27 @@ public class NewEntryCsv {
     }
 
     public static void writeMarket() {
-        System.out.print("上場市場>");
         while (true) {
+            System.out.print("上場市場>");
+            String writeMarketStr = scanner.nextLine();
             if ((writeMarketStr.matches("Prime"))
                     || (writeMarketStr.matches("Standard"))
                     || (writeMarketStr.matches("Growth"))) {
                 break;
             }else {
-                System.out.println("入浴に誤りがあります。やり直してください。");
+                System.out.println("入力に誤りがあります。やり直してください。");
             }
         }
     }
 
     public static void writeSharedIssued() {
-        System.out.print("発行済み株式数>");
         while (true) {
+            System.out.print("発行済み株式数>");
+            String writeSharedIssued = scanner.nextLine();
             if (writeSharedIssued.matches("\\d{1,12}")) {
                 break;
             }else {
-                System.out.println("入浴に誤りがあります。やり直してください。");
+                System.out.println("入力に誤りがあります。やり直してください。");
             }
         }
     }

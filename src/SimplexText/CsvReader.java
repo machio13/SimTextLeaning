@@ -29,6 +29,8 @@ public class CsvReader {
 
         }catch (IOException e) {
             System.out.println("うまく読み込めませんでした");
+        }catch (NumberFormatException e) {
+            System.out.println("うまく読み込めませんでした");
         }
 
         return stockList;

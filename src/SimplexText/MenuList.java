@@ -37,7 +37,12 @@ public class MenuList {
 
                 case "2" -> {
                     System.out.println("「銘柄マスタ新規登録」が選択されました");
-                    List<Stock> csvWrite = CsvWriter.writeCsv(csvFile);
+                    NewEntryCsv.writeName();
+                    NewEntryCsv.writeTicker();
+                    NewEntryCsv.writeMarket();
+                    NewEntryCsv.writeSharedIssued();
+
+                    CsvWriter.writeCsv(csvFile);
                     System.out.println("---");
                 }
 
