@@ -26,7 +26,6 @@ public class CsvReader {
                 stockList.add(new Stock(lineBox[0], lineBox[1], formattedMarket, bigDecimalFormat));
             }
 
-
         }catch (IOException e) {
             System.out.println("うまく読み込めませんでした");
         }catch (NumberFormatException e) {

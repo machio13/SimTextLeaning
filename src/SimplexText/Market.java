@@ -1,16 +1,25 @@
 package SimplexText;
 
 public enum Market {
-    Prime("PRIME"),
-    Growth("GROWS"),
-    Standard("STANDARD"),
-    N("---");
+    Prime("Prime", "P"),
+    Growth("Growth", "G"),
+    Standard("Standard", "S"),
+    Non("Nnnn", "nonon");
 
-    private final String code;
+    private String code;
+    private String oneChar;
 
-    Market(String code) {
+    Market(String code, String oneChar) {
         this.code = code;
+        this.oneChar = oneChar;
+    }
 
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getOneChar() {
+        return this.oneChar;
     }
 
     public static Market fromCode(String code) {
@@ -18,7 +27,17 @@ public enum Market {
             case "P" -> Prime;
             case "S" -> Standard;
             case "G" -> Growth;
-            default -> N;
+            default -> Non;
         };
     }
+
+    public static String charMarketCode(String oneChar) {
+        return switch (oneChar) {
+            case "Prime" -> Prime.getOneChar();
+            case "Standard" -> Standard.getOneChar();
+            case "Growth" -> Growth.getOneChar();
+            default -> Non.getOneChar();
+        };
+    }
+
 }

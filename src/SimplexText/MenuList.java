@@ -38,12 +38,26 @@ public class MenuList {
                 case "2" -> {
                     System.out.println("「銘柄マスタ新規登録」が選択されました");
                     NewEntryCsv.writeName();
-                    NewEntryCsv.writeTicker();
+                    NewEntryTicker.writeTicker(csvFile);  // ここでファイルを渡す
                     NewEntryCsv.writeMarket();
                     NewEntryCsv.writeSharedIssued();
 
                     CsvWriter.writeCsv(csvFile);
                     System.out.println("---");
+                }
+
+                case "3" -> {
+                    System.out.println("「取引入力」を選択しました");
+                    TradeDataTime tradeDataTime = new TradeDataTime();
+                    TradeDataValidate tradeDataValidate = new TradeDataValidate();
+
+                    tradeDataTime.valTradeDateTime();
+                    tradeDataValidate.valName(csvFile);
+                    tradeDataValidate.valSide();
+                    tradeDataValidate.valQuantity();
+                    tradeDataTime.valTradeUnitPrice();
+                    tradeDataTime.valInputDateTime();
+
                 }
 
                 default -> {
