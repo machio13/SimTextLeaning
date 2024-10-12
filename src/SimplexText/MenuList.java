@@ -9,6 +9,7 @@ public class MenuList {
     public static void showMenuList(){
         Scanner scanner = new Scanner(System.in);
         File csvFile = new File("src/SimplexText/Master.csv");
+        File tradeDataFile = new File("src/SimplexText/TradeData.csv");
 
         boolean isRunning = true;
         while (isRunning) {
@@ -16,6 +17,7 @@ public class MenuList {
             System.out.println("操作するメニューを選んでください。");
             System.out.println("1. 銘柄マスタ一覧表示");
             System.out.println("2. 銘柄マスタ新規登録");
+            System.out.println("3. 取引入力");
             System.out.println("9. アプリケーションを終了する");
             System.out.print("入力してください：");
             String userInput = scanner.nextLine();
@@ -48,16 +50,18 @@ public class MenuList {
 
                 case "3" -> {
                     System.out.println("「取引入力」を選択しました");
-                    TradeDataTime tradeDataTime = new TradeDataTime();
-                    TradeDataValidate tradeDataValidate = new TradeDataValidate();
+//                    TradeDataTime tradeDataTime = new TradeDataTime();
+//                    TradeDataValidate tradeDataValidate = new TradeDataValidate();
+//                    TradeDataWriter tradeDataWriter = new TradeDataWriter();
 
-                    tradeDataTime.valTradeDateTime();
-                    tradeDataValidate.valName(csvFile);
-                    tradeDataValidate.valSide();
-                    tradeDataValidate.valQuantity();
-                    tradeDataTime.valTradeUnitPrice();
-                    tradeDataTime.valInputDateTime();
+                    TradeDataTime.valTradeDateTime();
+                    TradeDataValidate.valName(csvFile);
+                    TradeDataValidate.valSide();
+                    TradeDataValidate.valQuantity();
+                    TradeDataTime.valTradeUnitPrice();
+                    TradeDataTime.valInputDateTime();
 
+                    TradeDataWriter.writeTradeData(tradeDataFile);
                 }
 
                 default -> {

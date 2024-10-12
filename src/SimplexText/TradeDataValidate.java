@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TradeDataValidate {
-    private String name;
-    private String side;
-    private BigDecimal quantity;
-    Scanner scanner = new Scanner(System.in);
+    private static String name;
+    private static String side;
+    private static long quantity;
+    static Scanner scanner = new Scanner(System.in);
 
-    public void valName(File csvFile) {
+    static void valName(File csvFile) {
         while (true) {
             System.out.print("銘柄>");
             name = scanner.nextLine();
@@ -23,7 +23,7 @@ public class TradeDataValidate {
         }
     }
 
-    public void valSide() {
+    static void valSide() {
         while (true) {
             System.out.print("売買区分(Sell, Buy)>");
             side = scanner.nextLine();
@@ -35,16 +35,15 @@ public class TradeDataValidate {
         }
     }
 
-    public void valQuantity() {
+    static void valQuantity() {
         while (true) {
             System.out.print("数量(100株単位での入力可能)>");
-            String userInputQuantity = scanner.nextLine();
-            int userInputQuantityInt = Integer.parseInt(userInputQuantity);
-            if (userInputQuantityInt / 100 == 0) {
-                quantity = new BigDecimal(userInputQuantityInt);
-            }else {
+            quantity = Long.parseLong(scanner.next());
+            if (!(quantity % 100 == 0)) {
                 System.out.println("100株単位で入力してください。");
             }
+            System.out.println(quantity);
+            break;
         }
     }
 
@@ -52,21 +51,23 @@ public class TradeDataValidate {
         List<Stock> stockList = CsvReader.readCsv(csvFile);
         for (Stock stock : stockList) {
             if (stock.getName().equals(name)) {
-                return false;
+                System.out.println("正常な入力です");
+                return true;
             }
         }
-        return true;
+        System.out.println("不正な入力です");
+        return false;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
-    public String getSide() {
+    public static String getSide() {
         return side;
     }
 
-    public BigDecimal getQuantity() {
+    public static long getQuantity() {
         return quantity;
     }
 
