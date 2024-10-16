@@ -7,11 +7,11 @@ public class TradeStock {
     private LocalDateTime TDTime;
     private String name;
     private String side;
-    private BigDecimal quantity;
+    private long quantity;
     private BigDecimal TUPrice;
     private LocalDateTime IDTime;
 
-    public TradeStock(LocalDateTime TDTime, String name, String side, BigDecimal quantity, BigDecimal TUPrice, LocalDateTime IDTime) {
+    public TradeStock(LocalDateTime TDTime, String name, String side, long quantity, BigDecimal TUPrice, LocalDateTime IDTime) {
         this.TDTime = TDTime;
         this.name = name;
         this.side = side;
@@ -44,11 +44,11 @@ public class TradeStock {
         this.side = side;
     }
 
-    public BigDecimal getQuantity() {
+    public long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(BigDecimal quantity) {
+    public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 

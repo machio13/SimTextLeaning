@@ -64,6 +64,14 @@ public class MenuList {
                     TradeDataWriter.writeTradeData(tradeDataFile);
                 }
 
+                case "4" -> {
+                    System.out.println("「取引一覧表示」を選択しました");
+                    TradeReader tradeReader = new TradeReader();
+                    List<TradeStock> readerCsv = tradeReader.readTrade(tradeDataFile);
+                    TradeDisplay tradeDisplay = new TradeDisplay();
+                    tradeDisplay.showTrade(readerCsv);
+                }
+
                 default -> {
                     System.out.println("\"" + userInput + "\"" + "に対応するメニューは存在しません");
                     System.out.println("---");

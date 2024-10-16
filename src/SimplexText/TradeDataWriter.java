@@ -26,8 +26,8 @@ public class TradeDataWriter {
                     "," + TradeDataValidate.getName() +
                     "," + TradeDataValidate.getSide() +
                     "," + TradeDataValidate.getQuantity() +
-                    "," + TradeDataTime.getInputDateTime() +
-                    "," + TradeDataTime.getTradedUnitPrice());
+                    "," + TradeDataTime.getTradedUnitPrice() +
+                    "," + TradeDataTime.getInputDateTime());
 
             bufferedWriter.newLine();
 
