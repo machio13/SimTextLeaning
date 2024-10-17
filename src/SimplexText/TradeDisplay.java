@@ -24,7 +24,7 @@ public class TradeDisplay {
     public void showTrade(List<TradeStock> tradeStockList) {
         System.out.println("|========================================================================================================|");
         System.out.println("| Traded Datetime  | Product Name           | Side | Quantity.     | Traded Unit Price | Input Datetime  |");
-        System.out.println("|------------------+------------------------+------+----------+-------------------+-----------------|");
+        System.out.println("|------------------+------------------------+------+---------------+-------------------+-----------------|");
 
         for (TradeStock tradeStock : tradeStockList) {
             LocalDateTime tradedDatetime = tradeStock.getTDTime();
@@ -34,8 +34,8 @@ public class TradeDisplay {
             BigDecimal tradedUnitPrice = tradeStock.getTUPrice();
             LocalDateTime inputDatetime = tradeStock.getIDTime();
 
-            System.out.printf("| %-17s| %-23s| %-5s| %9s| %18s| %15s|\n", tradedDatetime, productName, side, quantity, tradedUnitPrice, inputDatetime);
+            System.out.printf("| %-17s| %-23s| %-5s| %14s| %18s| %15s|\n", tradedDatetime, productName, side, quantity, tradedUnitPrice, inputDatetime);
         }
-        System.out.println("|===================================================================================================|");
+        System.out.println("|========================================================================================================|");
     }
 }
