@@ -18,26 +18,27 @@ public class MenuList {
             System.out.println("1. 銘柄マスタ一覧表示");
             System.out.println("2. 銘柄マスタ新規登録");
             System.out.println("3. 取引入力");
+            System.out.println("4. 取引一覧表示");
             System.out.println("9. アプリケーションを終了する");
             System.out.print("入力してください：");
-            String userInput = scanner.nextLine();
+            int userInput = scanner.nextInt();
 
             switch (userInput) {
 
-                case "9" -> {
+                case 9 -> {
                     System.out.println("アプリケーションを終了する");
                     System.out.println("---");
                     isRunning = false;
                 }
 
-                case "1" -> {
+                case 1 -> {
                     System.out.println("「銘柄マスタ一覧表示」が選択されました");
                     List<Stock> csvRead = CsvReader.readCsv(csvFile);
                     CsvDisplay.showCsv(csvRead);
                     System.out.println("---");
                 }
 
-                case "2" -> {
+                case 2 -> {
                     System.out.println("「銘柄マスタ新規登録」が選択されました");
                     NewEntryCsv.writeName();
                     NewEntryTicker.writeTicker(csvFile);  // ここでファイルを渡す
@@ -48,7 +49,7 @@ public class MenuList {
                     System.out.println("---");
                 }
 
-                case "3" -> {
+                case 3 -> {
                     System.out.println("「取引入力」を選択しました");
 //                    TradeDataTime tradeDataTime = new TradeDataTime();
 //                    TradeDataValidate tradeDataValidate = new TradeDataValidate();
@@ -64,7 +65,7 @@ public class MenuList {
                     TradeDataWriter.writeTradeData(tradeDataFile);
                 }
 
-                case "4" -> {
+                case 4 -> {
                     System.out.println("「取引一覧表示」を選択しました");
                     TradeReader tradeReader = new TradeReader();
                     List<TradeStock> readerCsv = tradeReader.readTrade(tradeDataFile);

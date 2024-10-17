@@ -31,13 +31,4 @@ public enum Market {
         };
     }
 
-    public static String charMarketCode(String oneChar) {
-        return switch (oneChar) {
-            case "Prime" -> Prime.getOneChar();
-            case "Standard" -> Standard.getOneChar();
-            case "Growth" -> Growth.getOneChar();
-            default -> Non.getOneChar();
-        };
-    }
-
 }
