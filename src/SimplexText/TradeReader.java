@@ -8,10 +8,7 @@ import java.math.BigDecimal;
 import java.nio.file.NoSuchFileException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class TradeReader {
 
@@ -37,6 +34,7 @@ public class TradeReader {
         }catch (IOException e) {
             System.out.println("うまく読み込めませんでした");
         }
+        tradeStockList.sort(Comparator.comparing(TradeStock::getIDTime).reversed());
         return tradeStockList;
     }
 }
